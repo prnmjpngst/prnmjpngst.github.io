@@ -1,0 +1,62 @@
+booting the iso
+connect to wifi  using iwctl
+	iwctl station wlan0 connect-hidden myAP
+	test with ping
+selecting mirrors with reflector
+	reflector -c singapore/indonesia -n 5 --sort rate
+partitioning
+	lsblk
+	gdisk /dev/sda
+	create 3 partitions for boot,root,home(300M,30G,50G) ef00,8300,8300
+	mkfs.vfat /dev/sda1
+	mkfs.ext4 /dev/sda2
+	mkfs.ext4 /dev/sda3
+mouting partitions
+	mount /dev/sda2 /mnt
+	mkdir -p /mnt/{boot/efi,home}
+	mount /dev/sda1 /mnt/boot/efi
+	mount /dev/sda3 /mnt/home
+	lsblk
+installing base
+	pacstrap /mnt base linux linux-firmware git vim intel-ucode
+	(waiting)
+generating fstab
+	genfstab -U /mnt >> /mnt/etc/fstab
+moving to the installation system
+	arch-chroot /mnt
+	cat /mnt/etc/fstab
+configuring timezone
+	ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+	hwclock --systohc
+configuring locale
+	vim /etc/locale.gen
+	(uncomment en_US.UTF-8 UTF-8)
+	locale-gen
+	echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+	(check with cat)
+	echo "prnmjpngst" >> /etc/hostname
+	vim /etc/hosts
+		127.0.0.1	localhost
+		::1		localhost
+		127.0.1.1	prnmjpngst.localdomain	prnmjpngst
+change root password
+	paswwd
+installing basic packages
+	pacman -S grub efibootmgr networkmanager network-manager-applet dialog
+	wpa_supplicant linux-headers xdg-utils xdg-users-dirs bluez bluez-utils cups
+	pulseaudio alsa-utils pavucontrol terminus-font bashc-completion reflector
+	(waiting)
+configuring grub
+	grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+	grub-mkconfig -o /boot/grub/grub.cfg
+enabling services
+adding users
+	useradd -m aji
+	passwd aji
+	EDITOR=vim visudo
+	(uncomment wheel)
+	usermod -aG wheel aji
+exit
+unmount
+reboot
+
