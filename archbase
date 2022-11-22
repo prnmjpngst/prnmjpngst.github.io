@@ -1,5 +1,0 @@
-ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
-hwclocko --systohc
-sed -i '178/.//' /etc/locale.gen
-locale-gen
-
