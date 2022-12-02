@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+button {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+  }
+#container{
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px auto 200px;
+    background-color: white;
+    border: 3px solid black;
+    margin: 10px 30px;
+
+
+}
+.label {
+    color: red;
+    font-size: 25px;
+}
+.menu-item {
+    color: black;
+    padding: 10px 0 10px 0;
+    line-height: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+.menu-item:hover {
+    background-color: lightblue;
+}
+.drop-btn {
+    background-color: white;
+    color: black;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    transform: translate(-3px,10px);
+    background-color: white;
+    min-width: 160px;
+    z-index: 1;
+    border: 3px solid black;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+
+}
+.dropdown-content a:hover {
+    background-color: lightblue;
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+.dropdown:hover {
+    background-color: lightblue;
+}
+.clock {
+    border-left: 3px solid black;
+}
+
+.dropdown-clock {
+    display: none;
+    position: absolute;
+    transform: translate(-3px,10px);
+    background-color: white;
+    min-width: 177px;
+    min-height: 20px;
+    z-index: 1;
+    border: 3px solid black;
+}
+.dropdown:hover .dropdown-clock{
+    display: block;
+}
+#pt {
+    padding: 10px;
+}
+img {
+    position: fixed;
+    left: -60px;
+    bottom: -50px;
+    z-index: 1;
+    
+}
+.ganba1 {
+    position: fixed;
+    left: 380px;
+    bottom: 295px;
+    
+    
+    
+}
+.ganba2 {
+    position: fixed;
+    left: 300px;
+    bottom: 255px;
+    width:300px;
+    height: auto;
+   
+    
+}
+#pass {
+    color: white;
+    position: relative;
+    text-align: center;
+    padding: 10px;
+}

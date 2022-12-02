@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="home.css">
+        <title>
+            New Tab
+        </title>
+        
+    </head>
+    <body onload="penanggalan()">
+
+        <div id="container">
+            
+            <div class="menu-item dropdown">
+                WORK
+                <div class="dropdown-content">
+                    <a href="https://docs.google.com/spreadsheets/d/1EQuvVvtkUlGfM31SVGDqgtOawc1JAC1Mp_UfYNbkyGE/edit#gid=1094901478"><button onclick="kerjo()">Start Session</button></a>
+                    <a href="https://connect.appen.com/qrp/core/login">Appen</a>
+
+                </div>
+            </div>
+            <div class="menu-item dropdown">
+                SNS
+                <div class="dropdown-content">
+                    <a href="https://mail.google.com/mail/u/0/">Mail</a>
+                    <a href="https://youtube.com">YouTube</a>
+                    <a href="https://music.youtube.com">YMusic</a>
+                    <a href="https://facebook.com">Facebook</a>
+                    <a href="https://twitter.com">Twitter</a>
+                    <a href="https://www.bilibili.tv/id">Bstation</a>
+                </div>
+            </div>
+            <div class="menu-item dropdown">
+                LEARN
+                <div class="dropdown-content">
+                    <a href="https://developer.mozilla.org/en-US/">MDN</a>
+                    <a href="https://www.wanikani.com/">WaniKani</a>
+                </div>
+            </div>
+            <div class="menu-item dropdown">
+                OTHER
+                <div class="dropdown-content">
+                    <a href="https://login.payoneer.com/">Payoneer</a>
+                    <a href="https://translate.google.com/">Translate</a>
+                    <a href="https://app.grammarly.com/docs/new">Grammarly</a>
+                    <a href="https://194.163.183.129/">Samehadaku</a>
+                </div>
+            </div>
+            <div class="grid-item"><p id="pass">fXFT!,fkQf=i6B6</p></div>
+            <div class="menu-item dropdown clock">
+                <div id="wib"></div>
+                <div id="pt" class="dropdown-clock"></div>
+            </div>
+            
+
+            
+        </div>
+        <img src="kronii.png">
+        <h1 class="ganba1">頑張って!!!</h1>
+        <img src="balloon.png" class="ganba2">
+
+        
+        <script>
+            function penanggalan() {
+                const today = new Date();
+                let hari = today.getDate();
+                let bulan = today.getMonth();
+                let tahun = today.getFullYear();
+                let jam = today.getHours();
+                let menit = today.getMinutes();
+                if (jam>15) {haript=hari} else {haript=hari-1;}
+                bulan = bulan+1;
+                jampt = jam-15;
+                jam = cek(jam);
+                menit = cek(menit);
+                jampt = cek(jampt);
+                hari = cek(hari);
+                bulan = cek(bulan);
+                haript = cek(haript);
+               
+
+                document.getElementById('wib').innerHTML = hari + "/" + bulan + "/" + tahun + " "+"|"+ " " + jam+":"+menit;
+                document.getElementById('pt').innerHTML = haript + "/" + bulan + "/" + tahun + " "+"|"+ " " + jampt+":"+menit;
+
+                setTimeout(penanggalan, 60000);
+            }
+            
+            function cek(i) {
+                if (i<10) {
+                    i = "0" + i
+                };
+                return i;
+            }
+
+            function kerjo() {
+                window.open('https://www.raterhub.com/evaluation/rater/task/index');
+            }
+        </script>
+
+    </body>
+</html>
