@@ -123,3 +123,8 @@ img {
     text-align: center;
     padding: 10px;
 }
+.layar {
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
